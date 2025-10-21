@@ -25,7 +25,16 @@ function ItemDetailContainer() {
         textAlign: "center"
       }}
     >
-      <img width="120" src={itemData.img} alt={itemData.title} />
+      
+<img
+  src={itemData.img}
+  alt={itemData.title}
+  style={{
+    width: "120px",
+    height: "160px",
+  }}
+/>
+
       <h4>{itemData.title}</h4>
       <p>Fecha de estreno: {itemData.fecha_de_estreno}</p>
       <ItemCount />

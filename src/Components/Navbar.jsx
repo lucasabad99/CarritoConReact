@@ -8,8 +8,8 @@ const NavBar = () => {
        Tienda de Lucas Abad
       </Link>
       <div className="nav-buttons">
-        <button>Moldes</button>
-        <button>Piedras</button>
+        <button>Categorias</button>
+        <button>Nuestra Historia</button>
         <button>Contacto</button>
       </div>
       <CartWidget />

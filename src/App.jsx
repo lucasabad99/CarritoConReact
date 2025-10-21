@@ -18,12 +18,9 @@ function App() {
         {/* ✅ Ruta principal para mostrar las cards */}
         <Route
           path="/"
-          element={<ItemListContainer prueba={"Tienda de Lucas Abad"} />}
+          element={<ItemListContainer/>}
         />
-        <Route
-          path="/Main"
-          element={<ItemListContainer prueba={"Tienda de Lucas Abad"} />}
-        />
+        
         <Route
           path="/detail/:idParam"
           element={<ItemDetailContainer />}
@@ -34,7 +31,7 @@ function App() {
         />
       </Routes>
 
-      <ItemCount />
+      
     </BrowserRouter>
   );
 }

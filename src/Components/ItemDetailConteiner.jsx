@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 function ItemDetailContainer() {
-  const [itemData, setItemData] = useState({});
+  const [itemData, setItemData] = useState({ loading: true });
   const { idParam } = useParams();
 
   useEffect(() => {
@@ -22,22 +22,26 @@ function ItemDetailContainer() {
         padding: "10px",
         borderRadius: "8px",
         width: "200px",
-        textAlign: "center"
+        textAlign: "center",
       }}
     >
-      
-<img
-  src={itemData.img}
-  alt={itemData.title}
-  style={{
-    width: "120px",
-    height: "160px",
-  }}
-/>
-
-      <h4>{itemData.title}</h4>
-      <p>Fecha de estreno: {itemData.fecha_de_estreno}</p>
-      <ItemCount />
+      {itemData.loading ? (
+        <h3>Cargando...</h3>
+      ) : (
+        <div>
+          <img
+            src={itemData.img}
+            alt={itemData.title}
+            style={{
+              width: "120px",
+              height: "160px",
+            }}
+          />
+          <h4>{itemData.title}</h4>
+          <p>Fecha de estreno: {itemData.fecha_de_estreno}</p>
+          <ItemCount />
+        </div>
+      )}
     </div>
   );
 }

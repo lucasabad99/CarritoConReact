@@ -6,7 +6,7 @@ function getData() {
     setTimeout(() => {
       console.log("Promesa cumplida pa");
       resolve(data);
-    }, 1000);
+    }, 5000);
   });
 }
 

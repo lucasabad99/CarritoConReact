@@ -1,10 +1,18 @@
 import Item from "./Item";
 import getData from "../data/mockAPIService.js";
 import { useEffect, useState } from "react";
+import { ClipLoader } from "react-spinners";
 
 const ItemListContainer = ({ prueba }) => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const color = "#36d7b7"; // Elegí el color que prefieras
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  };
 
   useEffect(() => {
     getData()
@@ -21,9 +29,15 @@ const ItemListContainer = ({ prueba }) => {
 
   return (
     <section className="itemlist">
-      <h3>-- {prueba} --</h3>
       {loading ? (
-        <h4>Cargando productos...</h4>
+        <ClipLoader
+          color={color}
+          loading={loading}
+          cssOverride={override}
+          size={150}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
       ) : (
         items.map((item) => <Item key={item.id} {...item} />)
       )}

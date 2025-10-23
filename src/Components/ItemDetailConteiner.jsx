@@ -2,6 +2,8 @@ import ItemCount from "./ItemCount";
 import { getProductById } from "../data/mockAPIService.js";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
+import 'ldrs/ring'
 
 function ItemDetailContainer() {
   const [itemData, setItemData] = useState({ loading: true });
@@ -26,7 +28,7 @@ function ItemDetailContainer() {
       }}
     >
       {itemData.loading ? (
-        <h3>Cargando...</h3>
+        <h3>Cargando...</h3> 
       ) : (
         <div>
           <img

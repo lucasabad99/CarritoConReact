@@ -5,15 +5,15 @@ export default function Item(props) {
     <div 
 
  style={{
-        display: "flex",              // ✅ Activa layout horizontal
-        alignItems: "center",         // Centra verticalmente
+        display: "flex",              
+        alignItems: "center",        
         border: "1px solid #ccc",
         borderRadius: "8px",
         padding: "10px",
-        width: "450px",               // Más ancho para acomodar todo
+        width: "450px",               
         backgroundColor: "#fff",
         marginBottom: "20px",
-        gap: "15px"                   // Espacio entre imagen y texto
+        gap: "15px"                   
       }}
 
 >

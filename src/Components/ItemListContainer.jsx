@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
 import { useParams } from "react-router";
 import getData, { getProductByCategory } from "../data/mockAPIService.js";
+import getData from "../data/FirestoreService.js" from "../data/mockAPIService.js";
 
 const ItemListContainer = ({ props }) => {
+getData();
+
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const {catParam} = useParams();

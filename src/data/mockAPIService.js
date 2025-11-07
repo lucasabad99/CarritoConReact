@@ -33,3 +33,5 @@ export function getProductByCategory(catParam) {
 }
 
 export default getData;
+
+

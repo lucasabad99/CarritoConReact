@@ -1,11 +1,15 @@
+import { useContext, useEffect, useState } from "react";
+import  cartContext  from "../context/cartContext";
 import ItemCount from "./ItemCount";
 import { getProductById } from "../data/mockAPIService.js";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import 'ldrs/ring';
 
 function ItemDetailContainer() {
+  const { addItem } = useContext(cartContext);
+
+
   const [itemData, setItemData] = useState();
   const [loading, setLoading] = useState(true);
   const { idParam } = useParams();
@@ -16,7 +20,9 @@ function ItemDetailContainer() {
     margin: "0 auto",
     borderColor: "red",
   };
-
+  useEffect(() => {
+    addItem("otro producto");
+  }, []);
   useEffect(() => {
     console.log("ID recibido:", idParam);
     setLoading(true);
@@ -66,7 +72,7 @@ function ItemDetailContainer() {
             />
             <h4>{itemData.title}</h4>
             <p>Fecha de estreno: {itemData.fecha_de_estreno}</p>
-            <ItemCount />
+            <ItemCount product={itemData} />
           </div>
         )
       )}

@@ -1,16 +1,21 @@
 import { useContext } from "react";
-import { cartContext } from "../App";
+import  cartContext  from "../context/cartContext";
+import { Link } from "react-router";
 
 function CartWidget(){
 
-  const context = useContext(cartContext);
-  const cartItemCount = context.cart.length;
+  const {countItemsInCart} = useContext(cartContext);
 
    return(<div>
-    { cartItemCount }
-    🛒 
+
+    <Link to="/cart">
     
-    </div>)
+    🛒
+    { countItemsInCart() }
+    
+    </Link>
+    
+    </div>) 
 }
   
  

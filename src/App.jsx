@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import cartContext, {CartContextProvider} from './context/cartContext'
 import { createContext, useState } from 'react';
 import CartContainer from './Components/CartContainer';
+import { exportProducts } from './data/FirestoreService';
 
 
 
@@ -13,6 +14,7 @@ function App() {
 
   return(
     <BrowserRouter>
+    <button onClick={exportProducts}> Borrar despues</button>
       <CartContextProvider>
         <NavBar />
         <h1>Bienvenido a mi tienda</h1>

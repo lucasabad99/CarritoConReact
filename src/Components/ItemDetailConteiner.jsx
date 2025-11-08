@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import  cartContext  from "../context/cartContext";
 import ItemCount from "./ItemCount";
-import { getProductById } from "../data/mockAPIService.js";
+import { getProductById } from "../data/FirestoreService.js";
 import { useParams } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import 'ldrs/ring';

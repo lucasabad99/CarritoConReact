@@ -2,8 +2,7 @@ import Item from "./Item";
 import { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
 import { useParams } from "react-router";
-import getData, { getProductByCategory } from "../data/mockAPIService.js";
-import getData from "../data/FirestoreService.js" from "../data/mockAPIService.js";
+import getData, { getProductsByCategory } from "../data/FirestoreService.js";
 
 const ItemListContainer = ({ props }) => {
 getData();
@@ -21,11 +20,17 @@ getData();
   };
 
   useEffect(() => {
-    if(catParam) 
-      {
-       getProductByCategory(catParam)
-      .then((data) => setItems(data))
-    }
+    if (catParam) {
+  getProductsByCategory(catParam)
+    .then((data) => {
+      setItems(data);
+      setLoading(false);
+    })
+    .catch((err) => {
+      console.error("Error:", err);
+      setLoading(false);
+    });
+}
     else {
       getData()
       .then((data) => {

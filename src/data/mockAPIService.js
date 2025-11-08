@@ -10,7 +10,7 @@ function getData() {
 }
 
 
-export function getProductById(idParam) {
+/*export function getProductById(idParam) {
   return new Promise((resolve, reject) => {
     const itemRequested = data.find((item) => String(item.id) === idParam);
     setTimeout(() => {
@@ -30,7 +30,7 @@ export function getProductByCategory(catParam) {
       resolve(itemRequested);
     }, 500);
   });
-}
+}*/
 
 export default getData;
 

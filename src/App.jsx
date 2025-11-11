@@ -1,28 +1,35 @@
 import './App.css';
-import ItemDetailContainer from './Components/ItemDetailConteiner';
+import ItemDetailConteiner from './Components/ItemDetailConteiner';
 import ItemListContainer from './Components/ItemListContainer';
 import NavBar from './Components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import cartContext, {CartContextProvider} from './context/cartContext'
-import { createContext, useState } from 'react';
+import {CartContextProvider} from './context/cartContext'
 import CartContainer from './Components/CartContainer';
 import { exportProducts } from './data/FirestoreService';
+import {useState, useEffect} from "react";
 
 
 
 function App() {
 
+
+useEffect(() => {
+    exportProducts()
+      .then(() => console.log("Productos exportados automáticamente"))
+      .catch(err => console.error(err));
+  }, []); // [] asegura que se ejecute solo una vez
+
   return(
+  
     <BrowserRouter>
-    <button onClick={exportProducts}> Borrar despues</button>
       <CartContextProvider>
-        <NavBar />
+        <NavBar/>
         <h1>Bienvenido a mi tienda</h1>
         <h2>¡Pasen y vean!</h2>
 
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
-          <Route path="/detail/:idParam" element={<ItemDetailContainer />} />
+          <Route path="/detail/:idParam" element={<ItemDetailConteiner />} />
           <Route path="/category/:catParam" element={<ItemListContainer greeting="Categoría de Productos" />}/>
           <Route path="*" element={<h2>ERROR 404: NO ENCONTRAMOS RESULTADOS</h2>}/>
           <Route path="/cart" element={<CartContainer/>}/>

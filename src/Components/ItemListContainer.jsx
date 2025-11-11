@@ -2,10 +2,10 @@ import Item from "./Item";
 import { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
 import { useParams } from "react-router";
-import getData, { getProductsByCategory } from "../data/FirestoreService.js";
+import getData, { exportProducts, getProductsByCategory } from "../data/FirestoreService.js";
 
-const ItemListContainer = ({ props }) => {
-getData();
+function ItemListContainer(props ){
+getData()
 
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -32,8 +32,7 @@ getData();
     });
 }
     else {
-      getData()
-      .then((data) => {
+      getData().then((data) => {
         console.log("datos recibidos", data);
         setItems(data);
         setLoading(false);
@@ -47,21 +46,15 @@ getData();
   }, [catParam]);
 
   return (
-    <section className="itemlist">
-      {loading ? (
-        <ClipLoader
-          color={color}
-          loading={loading}
-          cssOverride={override}
-          size={150}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-      ) : (
-        items.map((item) => <Item key={item.id} {...item} />)
-      )}
-    </section>
-  );
+  <section className="itemlist">
+    <h3>{props.greeting}</h3>
+    {loading ? (
+      <ClipLoader color={color} loading={loading} cssOverride={override} size={150} />
+    ) : (
+      items.map((item) => <Item key={item.id} {...item} />)
+    )}
+  </section>
+);
 };
 
 export default ItemListContainer;

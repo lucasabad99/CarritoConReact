@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import cartContext from "../context/cartContext";
 import { createBuyOrder } from "../data/FirestoreService";
+import CheckOutForm from "./CheckOutForm";
+
 
 
 function CartContainer(){
@@ -25,13 +27,12 @@ async function handleCheckOut(){
             <h3>{item.title}</h3>
             <img width="150" src={item.img}></img>
             <p>$ {item.price}</p>
-            <p>Cantidad: {item.quantity}</p>
+            <p>Cantidad:  {item.quantity}</p>
             <button>Eliminar</button>
             </div>)}
         </div>
         <div>
-            Total de la compra: $26611
-            <button onClick={handleCheckOut}>Comprar carrito</button>
+            <CheckOutForm/>
         </div>
     </section>
 }

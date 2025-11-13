@@ -7,17 +7,25 @@ import {CartContextProvider} from './context/cartContext'
 import CartContainer from './Components/CartContainer';
 import { exportProducts } from './data/FirestoreService';
 import {useState, useEffect} from "react";
+import getData from './data/FirestoreService';
 
 
 
 function App() {
 
 
-useEffect(() => {
+/*useEffect(() => {
     exportProducts()
       .then(() => console.log("Productos exportados automáticamente"))
       .catch(err => console.error(err));
-  }, []); // [] asegura que se ejecute solo una vez
+  }, []); // [] asegura que se ejecute solo una vez*/
+
+useEffect(() => {
+  getData()
+    .then(() => console.log("Productos cargados desde Firestore"))
+    .catch(err => console.error(err));
+}, []);
+
 
   return(
   

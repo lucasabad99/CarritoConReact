@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import cartContext from "../context/cartContext";
 import { createBuyOrder } from "../data/FirestoreService";
 import CheckOutForm from "./CheckOutForm";
@@ -7,6 +7,7 @@ import CheckOutForm from "./CheckOutForm";
 
 function CartContainer(){
 const { cart } = useContext(cartContext);
+const [orderCreated, setOrderCreated] = useState(false);
 
 
 async function handleCheckOut(){
@@ -18,6 +19,15 @@ async function handleCheckOut(){
     }
     const response = await createBuyOrder(orderData);
     alert(`Gracias por tu compra, este es el id de tu ticket final: ${response.id}`)
+    setOrderCreated(response.id);
+    clearCart();
+}
+
+if(orderCreated){
+return <section>
+    <h2>Gracias por su compra señor</h2>
+    <p>este es el id: {orderCreated}</p>
+</section>
 }
 
     return <section>

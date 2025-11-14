@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export default function CheckOutForm(){
+export default function CheckOutForm(props){
 
     const [formData, setFormData] = useState(
         {
@@ -10,9 +10,11 @@ export default function CheckOutForm(){
         }
     );
 
-    function handlESubmit(event){
-        console.log(event);
-        event.preventDefaul();
+    function handleSubmit(event){
+        event.preventDefault();
+        console.log("enviando form");
+        props.handleCheckOut(formData);
+
        // const formElement = event.target;
         //onsole.log(formElement)
     }
@@ -36,7 +38,7 @@ export default function CheckOutForm(){
     }
 
     return( 
-    <form onSubmit={handlESubmit}>
+    <form onSubmit={handleSubmit}>
     <h4>ingresa tus datos personales</h4>
     <div>
         <label>Nombre     

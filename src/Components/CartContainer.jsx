@@ -10,9 +10,9 @@ const { cart } = useContext(cartContext);
 const [orderCreated, setOrderCreated] = useState(false);
 
 
-async function handleCheckOut(){
+async function handleCheckOut(formData){
     const orderData= {
-        buyer: {name: "Valentina", email:"Valentina@gmail.com", phone: 1234}, 
+        buyer: formData, 
         cart,
         Total: 999,
         date: new Date(),
@@ -33,16 +33,23 @@ return <section>
     return <section>
         <h1>Tu carrito de compras </h1>
         <div>
-            { cart.map(item => <div key={item.id}>
+            {cart.map(item => {
+    if (!item.title || !item.price || !item.img) {
+        return null; // No renderiza si faltan datos
+    }
+    return (
+        <div key={item.id}>
             <h3>{item.title}</h3>
-            <img width="150" src={item.img}></img>
+            <img width="150" src={item.img} alt={item.title} />
             <p>$ {item.price}</p>
-            <p>Cantidad:  {item.quantity}</p>
+            <p>Cantidad: {item.quantity}</p>
             <button>Eliminar</button>
-            </div>)}
+        </div>
+    );
+})}
         </div>
         <div>
-            <CheckOutForm/>
+            <CheckOutForm  handleCheckOut= {handleCheckOut}/>
         </div>
     </section>
 }

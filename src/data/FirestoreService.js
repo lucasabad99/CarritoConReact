@@ -14,12 +14,12 @@ import data from "./data"; // Tu array de productos
 
 // Firebase Config
 const firebaseConfig = {
-  apiKey: "AIzaSyCLpbQw9lfYEPSk_b0UasMC1kmimssOl0s",
-  authDomain: "react-lubad.firebaseapp.com",
-  projectId: "react-lubad",
-  storageBucket: "react-lubad.firebasestorage.app",
+  apiKey: import.meta.env.VITE_FS_APIKEY,
+  authDomain: import.meta.env.VITE_FS_AUTH,
+  projectId: import.meta.env.VITE_FS_PROJECTID,
+  storageBucket: import.meta.env.VITE_FS_BUCKET,
   messagingSenderId: "306198768469",
-  appId: "1:306198768469:web:caa2320f31398cb6291ddc"
+  appId: import.meta.env.VITE_FS_APPID
 };
 
 // Inicializar Firebase

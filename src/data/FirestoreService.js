@@ -11,6 +11,7 @@ import {
   addDoc
 } from "firebase/firestore";
 import data from "./data"; // Tu array de productos
+import CartContainer from "../Components/CartContainer";
 
 // Firebase Config
 const firebaseConfig = {
@@ -80,10 +81,6 @@ export async function exportProducts() {
       console.log(`Producto "${item.title}" ya existe`);
     }
   }
-}
-
-export async function BorrarDelCarrito(){
-
 }
 
 

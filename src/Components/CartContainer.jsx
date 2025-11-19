@@ -6,7 +6,7 @@ import CheckOutForm from "./CheckOutForm";
 
 
 function CartContainer(){
- const { cart, removeItem, clearCart, getTotalPrice } = useContext(cartContext);
+ const { cart, removeItem, clearCart } = useContext(cartContext);
 const [orderCreated, setOrderCreated] = useState(false);
 
 
@@ -51,6 +51,7 @@ return <section>
         </div>
         <div>
             <CheckOutForm  handleCheckOut= {handleCheckOut}/>
+            <button onClick={ clearCart }>Vaciar Carrito</button>
         </div>
     </section>
 }

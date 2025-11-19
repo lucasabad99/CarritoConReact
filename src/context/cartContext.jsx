@@ -21,7 +21,7 @@ export function CartContextProvider( {children }){
 
 
 function clearCart() {
-  setCart([]);
+  setCartItems([]);
 }
   
 function countItemsInCart() {

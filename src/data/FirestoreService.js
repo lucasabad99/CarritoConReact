@@ -82,5 +82,9 @@ export async function exportProducts() {
   }
 }
 
+export async function BorrarDelCarrito(){
+
+}
+
 
 export default getData;

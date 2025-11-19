@@ -8,6 +8,7 @@ import CartContainer from './Components/CartContainer';
 import { exportProducts } from './data/FirestoreService';
 import {useState, useEffect} from "react";
 import getData from './data/FirestoreService';
+import NuestraHistoria from './Components/NuestraHistoria';
 
 
 
@@ -33,12 +34,12 @@ useEffect(() => {
       <CartContextProvider>
         <NavBar/>
         <h1>Bienvenido a mi tienda</h1>
-        <h2>¡Pasen y vean!</h2>
 
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
           <Route path="/detail/:idParam" element={<ItemDetailConteiner />} />
           <Route path="/category/:catParam" element={<ItemListContainer greeting="Categoría de Productos" />}/>
+          <Route path="/nuestra-historia" element={<NuestraHistoria />} />
           <Route path="*" element={<h2>ERROR 404: NO ENCONTRAMOS RESULTADOS</h2>}/>
           <Route path="/cart" element={<CartContainer/>}/>
 

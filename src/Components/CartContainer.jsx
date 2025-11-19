@@ -6,8 +6,9 @@ import CheckOutForm from "./CheckOutForm";
 
 
 function CartContainer(){
-const { cart } = useContext(cartContext);
+ const { cart, removeItem, clearCart, getTotalPrice } = useContext(cartContext);
 const [orderCreated, setOrderCreated] = useState(false);
+
 
 
 async function handleCheckOut(formData){
@@ -43,7 +44,7 @@ return <section>
             <img width="150" src={item.img} alt={item.title} />
             <p>$ {item.price}</p>
             <p>Cantidad: {item.quantity}</p>
-            <button>Eliminar</button>
+            <button onClick={() => removeItem(item.id)}>Eliminar</button>
         </div>
     );
 })}

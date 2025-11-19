@@ -13,14 +13,16 @@ export function CartContextProvider( {children }){
   setCartItems(newCartItems);
   }
 
-  function removeItem(){
-    /*Eliminar el prducto con ese id del context */
+
+ // Eliminar producto por ID
+  function removeItem(id) {
+    setCartItems(cartItems.filter(item => item.id !== id));
   }
 
-  function clearCart(){
-    //vaciar el carrito de compras del context 
-  }
 
+function clearCart() {
+  setCart([]);
+}
   
 function countItemsInCart() {
   let totalItems = 0;
@@ -36,7 +38,7 @@ function countItemsInCart() {
   }
 
 return(
-    <cartContext.Provider value ={ {cart: cartItems, addItem, removeItem, clearCart, countItemsInCart, getTotalPrice } }>
+    <cartContext.Provider value ={ {cart: cartItems, addItem, removeItem, clearCart, countItemsInCart, getTotalPrice} }>
       {children}
     </cartContext.Provider>
 )

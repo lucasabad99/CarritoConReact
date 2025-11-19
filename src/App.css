@@ -68,3 +68,11 @@ nav button:hover {
   margin-bottom: 1rem;
 }
 
+.link-home { color: #ff5733; font-weight: bold; }
+.link-comedia { color: #f39c12; }
+.link-drama { color: #8e44ad; }
+.link-ciencia { color: #3498db; }
+.link-musical { color: #2ecc71; }
+.link-suspenso { color: #e74c3c; }
+.link-terror { color: #34495e; }
+.link-historia { color: #d35400; }
